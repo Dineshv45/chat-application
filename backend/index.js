@@ -12,7 +12,10 @@ const server = http.createServer(app);
 // ✅ Allow CORS for your React frontend (Vite on port 5173)
 const io = socketio(server, {
   cors: {
-    origin: 'http://localhost:5173', // your frontend URL
+    origin: [
+      "http://localhost:5173", 
+      "https://chat-application-five-beta.vercel.app/"
+    ],
     methods: ['GET', 'POST'],
     credentials: true,
   },
