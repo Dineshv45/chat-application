@@ -9,8 +9,12 @@ import Input from '../Input/Input';
 
 import './Chat.css';
 
-const ENDPOINT = 'http://localhost:5000'; 
-let socket;
+const ENDPOINT =
+  import.meta.env.MODE === "development"
+    ? import.meta.env.VITE_BACKEND_LOCAL
+    : import.meta.env.VITE_BACKEND_PROD;
+
+    let socket;
 
 const Chat = () => {
   const location = useLocation();
